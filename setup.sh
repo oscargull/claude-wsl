@@ -7,13 +7,13 @@ glm_ak=""
 kimi_ak=""
 
 echo -n "API Key de Deepseek: "
-read -r deepseek_ak
+read -r deepseek_ak </dev/tty
 
 echo -n "API Key de z.ai (GLM): "
-read -r glm_ak
+read -r glm_ak </dev/tty
 
 echo -n "API Key de Kimi: "
-read -r kimi_ak
+read -r kimi_ak </dev/tty
 
 echo "DEEPSEEK_API_KEY=$deepseek_ak" > ~/.secrets
 echo "GLM_API_KEY=$glm_ak" >> ~/.secrets
