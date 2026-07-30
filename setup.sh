@@ -2,18 +2,24 @@
 
 cd 
 
-read -p  "API Key de Deepseek: " deepseek_ak
+deepseek_ak=""
+glm_ak=""
+kimi_ak=""
 
-read -p "API Key de z.ai (GLM): " glm_ak
+echo -n "API Key de Deepseek: "
+read -r deepseek_ak
 
-read -p "API Key de Kimi: " kimi_ak
+echo -n "API Key de z.ai (GLM): "
+read -r glm_ak
 
-
+echo -n "API Key de Kimi: "
+read -r kimi_ak
 
 echo "DEEPSEEK_API_KEY=$deepseek_ak" > ~/.secrets
 echo "GLM_API_KEY=$glm_ak" >> ~/.secrets
 echo "KIMI_API_KEY=$kimi_ak" >> ~/.secrets
 
+if ! grep -q "# --- Claude proveedores personalizados ---" ~/.bashrc; then
 cat << 'EOF' >> ~/.bashrc
 
 # --- Cargar api keys
@@ -53,5 +59,7 @@ claude-glm(){
 }
 # ---------------------------------
 EOF
+fi
 
+echo "Configuracion finalizada."
 source ~/.bashrc
